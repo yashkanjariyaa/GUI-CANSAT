@@ -1,0 +1,33 @@
+#mygraph{
+  position: absolute;
+  height: 43vh;
+  width: 30vw;
+}
+.three-graph-container{
+  margin: 1vh 1vw;
+  padding: 0.5vh;
+  border: 2px solid var(--darker-blue-green);
+  width: 30vw;
+  height: 43vh;
+  position: relative;
+}
+.other-element{
+  color:white;
+}
+.three-graph-container .col{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.mapElement{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  padding: 0.5vh 0.5vw;
+  font-size: 1vw;
+  margin: 0.5vh;
+}
+.mapElement .key {
+  flex-grow: 2;
+}

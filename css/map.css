@@ -1,0 +1,33 @@
+.map-container {
+  width: 36vw;
+  margin: 0 0.5vw;
+  border: 2px solid var(--darker-blue-green);
+  position: relative;
+}
+#map {
+  position: absolute;
+  padding: 0.5vw;
+  width: 34.5vw;
+  height: 95%;
+  z-index: 0;
+}
+.map-container .col {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  margin: 1vh 1vw;
+}
+.map-container .mapElement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  padding: 0.5vh 0.5vw;
+  font-size: 1vw;
+  margin: 0.5vh;
+}
+.mapElement .key {
+  flex-grow: 2;
+}

@@ -1,0 +1,19 @@
+:root {
+  --blue-green: #47b6c5;
+  --lighter-blue-green: #86cfe9;
+  --darker-blue-green:  #2687aa;
+  --transparent-white: #ffffffb6;
+  --blur-white: rgba(255, 255, 255, 0.698);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+/*body and containers*/
+body {
+  background: #efefef;
+  font-family: "Montserrat", sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}

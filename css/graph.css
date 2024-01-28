@@ -1,0 +1,21 @@
+/*graph-container*/
+.graph-container {
+    background-color: rgba(224, 225, 237, 0);
+    width: fit-content;
+    height: fit-content;
+    border: var(--darker-blue-green) 3px solid;
+    border-radius: 15px;
+    margin: 0.5vh 0.9vw;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw;
+  }
+  .graph-one,
+  .graph-two,
+  .graph-three,
+  .graph-four {
+    margin: 0.5vh 0.5vw;
+    width: 30vw;
+    height: 20vw;
+  }
+  

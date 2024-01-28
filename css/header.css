@@ -1,0 +1,102 @@
+:root {
+  --blue-green: #47b6c5;
+  --lighter-blue-green: #86cfe9;
+  --darker-blue-green:  #2687aa;
+  --transparent-white: #ffffffb6;
+  --blur-white: rgba(255, 255, 255, 0.698);
+}
+/*header*/
+.header {
+    background: var(--darker-blue-green);
+    height: 13vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+  .upper-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 20px;
+    border-bottom: var(--transparent-white) solid 1px;
+  }
+  
+  .sub-container .key,
+  .sub-container .value {
+    color: white;
+    text-align: left;
+    font-size: 1.6vw;
+    padding: 1vh;
+  }
+  .header .head {
+    font-size: 3vw;
+    margin: 0;
+    color: white;
+    font-weight: 1000;
+    display:flex;
+    align-items: center;
+  }
+  .header .sub-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+  }
+  .team-id,
+  .mission-time {
+    display: flex;
+    flex-direction: row;
+    border: white 2px solid;
+    border-radius: 10px;
+    padding: 1.5vw;
+    width: fit-content;
+  }
+  .team-id {
+    flex-grow: 1;
+    margin-right: 2.5vw;
+    margin-left: 7vw;
+    text-align: right;
+    display: flex;
+  }
+  .mission-time {
+    flex-grow: 1;
+    margin-left: 2.5vw;
+    margin-right: 4vw;
+    display: flex;
+  }
+  .team-id .key,
+  .mission-time .key {
+    flex-grow: 5;
+  }
+  .team-id .value,
+  .mission-time .value {
+    flex-grow: 1;
+  }
+  /*flag and logo*/
+  .flag {
+    width: 8.7vw;
+    height: auto;
+  }
+  .logo {
+    width: 8.5vw;
+    height: auto;
+    padding: 0vw 0.3vw;
+  }
+  /*nav bar*/
+  .navigate{
+    display: flex;
+    flex-direction: row;
+  }
+  .navigate .navButton{
+    color:white;
+    text-decoration: none;
+    font-size: 1.3vw;
+    text-align: center;
+    padding: 0.8vw;
+    margin: 1vw 2vw;
+  }
+  .navigate .navActive{
+    border-bottom: white 2px solid;
+  }

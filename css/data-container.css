@@ -1,0 +1,333 @@
+:root {
+  --blue-green: #47b6c5;
+  --lighter-blue-green: #86cfe9;
+  --darker-blue-green: #2687aa;
+  --transparent-white: #ffffffb6;
+  --blur-white: rgba(255, 255, 255, 0.698);
+}
+.super-container {
+  display: flex;
+  flex-direction: column;
+}
+/*data point container*/
+.data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+.container {
+  background-color: rgba(224, 225, 237, 0);
+  height: fit-content;
+  width: 100vw;
+  margin-top: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5vw;
+  width: fit-content;
+}
+.column-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 42vw;
+  height: 40vh;
+}
+.column-container .column {
+  display: flex;
+  flex-direction: column;
+}
+.column .element {
+  border-radius: 8px;
+  margin: 0.65vh 0.4vw;
+}
+.column .element:first-child {
+  margin-top: 0;
+}
+.other-element {
+  background: var(--blue-green);
+}
+.graph-element {
+  background: var(--darker-blue-green);
+}
+/*cards*/
+.element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2.8vh 1.5vw;
+  font-size: 1.2vw;
+  width: 17vw;
+}
+.element .key,
+.element .value {
+  color: white;
+}
+.element .key {
+  text-align: left;
+  flex-grow: 4;
+  margin-right: 0.5vw;
+}
+.element .value {
+  text-align: right;
+  flex-grow: 1;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+/*flow chart*/
+.flowChart-container {
+  background: var(--blue-green);
+  border-radius: 10px;
+  margin: 0vh 0.5vw 0.5vh 0.5vh;
+  padding: 0.5vw;
+  font-size: 1vw;
+  height: fit-content;
+  width: 97vw;
+  display: flex;
+  flex-direction: row;
+}
+.flowChart-container .sub-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 2;
+}
+.flowChart-container .states {
+  background: white;
+  padding: 1vw;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+  margin: 1vh 1vw;
+}
+.flowChart-container i {
+  color: #fff;
+}
+.flowChart-container .active {
+  background: var(--darker-blue-green);
+  color: white;
+}
+/*Menu*/
+.control-container {
+  background: var(--blue-green);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5vh 1vw;
+  border-radius: 10px;
+  margin: 0 0.5vw;
+  height: fit-content;
+}
+.package-count {
+  display: flex;
+  flex-direction: row;
+  padding: 1vh;
+  justify-content: center;
+  color: white;
+  font-size: 1vw;
+  border-top: var(--transparent-white) solid 1px;
+}
+.commands {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5vw 0;
+  border-bottom: var(--transparent-white) 1px solid;
+}
+.commands .input input {
+  height: 4vh;
+  width: 10vw;
+  font-size: 1.3vw;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  background: white;
+  flex-grow: 2;
+}
+.commands .input input:focus {
+  outline: none;
+}
+.command-button {
+  border-radius: 15px;
+  border: white 3px solid;
+  background: var(--blue-green);
+  color: white;
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  margin: 0 0.5vw;
+  flex-grow: 1;
+}
+.command-button:hover {
+  background: white;
+  color: var(--blue-green);
+}
+.command-button:active {
+  background: var(--blur-white);
+}
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-shrink: 1;
+  padding: 1vh 0;
+  border-top: var(--transparent-white) solid 1px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-size: 0.7vw;
+}
+.buttons .icon {
+  margin: 0.5vw 1.6vw;
+  font-size: 1.7vw;
+}
+.buttons div {
+  color: white;
+  text-align: center;
+}
+/*simulation mode*/
+.simulation-mode-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  padding-top: 0.3vh;
+  border-top: var(--transparent-white) 1px solid;
+}
+.label {
+  color: white;
+}
+/*toggle*/
+.toggle {
+  display: flex;
+}
+.toggle .label {
+  margin: auto;
+}
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 3vw;
+  height: 1.5vw;
+  background: var(--lighter-blue-green);
+  border: #fff solid 5px;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+label:after {
+  content: "";
+  position: absolute;
+  top: 0.5vh;
+  left: 0.25vw;
+  width: 1vw;
+  height: 1vw;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+input:checked + label {
+  background: var(--blue-green);
+}
+input:checked + label:after {
+  left: calc(100% - 0.2vw);
+  transform: translateX(-100%);
+}
+label:active:after {
+  width: 0.8vw;
+}
+.label {
+  font-size: 1.25vw;
+  padding: 0.5vw;
+}
+/*drop down*/
+.dropdown-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5vh 0;
+}
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+}
+.dropdown button {
+  height: 1vw;
+  width: 1vw;
+  border-radius: 50%;
+  border: none;
+  margin: 0 0.5vw;
+}
+.dropdown div {
+  padding: 0.5vh;
+  font-size: 1vw;
+  color: white;
+}
+/* Style the dropdown button */
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--darker-blue-green);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+.dropdown-content ul {
+  list-style-type: none;
+}
+.dropdown-content ul li{
+  padding: 1vh;
+}
+.show {
+  display: block;
+}
+.hidden{
+  display: none;
+}
+/*sub container within control container*/
+.control-container .sub-container {
+  display: flex;
+  flex-direction: row;
+}
+.sub-container .other-element {
+  display: flex;
+  flex-direction: row;
+}
+.sub-container .package-count .key,
+.sub-container .package-count .value {
+  font-size: 0.9vw;
+}
+/*gauge*/
+#gauge {
+  padding: 0;
+  height: 13vh;
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gauge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*hero and csv buttons*/
+#heroButton{
+  background-color: var(--darker-blue-green);
+}
+#csvButton{
+  background-color: var(--darker-blue-green);
+}
+.underline{
+  border-bottom: white solid 1px;
+}

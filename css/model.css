@@ -1,0 +1,25 @@
+/*model*/
+#model{
+    margin: 1vh 1vw;
+    padding: 0.5vh;
+    position: relative;
+    border: 1px solid var(--blue-green);
+    height: 37vh;
+    width: fit-content;
+  }
+  #model .other-element{
+    color:white;
+  }
+  #model .col{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+  #model .mapElement{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5vh 0.5vw;
+    font-size: 1vw;
+    margin: 0.5vh;
+  }

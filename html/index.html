@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/data-container.css" />
+    <link rel="stylesheet" href="../css/graph.css" />
+    <link rel="stylesheet" href="../css/model.css" />
+    <link rel="stylesheet" href="../css/map.css" />
+    <link rel="stylesheet" href="../css/threeMap.css" />
+    <!--other utilities-->
+    <script
+      src="https://kit.fontawesome.com/8e55c586eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Index.js-->
+    <script defer src="../js/index.js"></script>
+    <!--Style for fonts-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lato:wght@300&family=Montserrat:wght@200;500;700&family=Noto+Serif+Display&family=Roboto&display=swap");
+    </style>
+    <!--leaflet-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!--vis.js-->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vis-graph3d@latest/dist/vis-graph3d.min.js"
+    ></script>
+    <script src="../js/threeMap.js"></script>
+    <!--plotly.js-->
+    <script src="../js/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <!--3.js-->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script defer type="module" src="../js/model.js"></script>
+    <!--map-->
+    <script defer src="../js/map.js"></script>
+    <!--gauge-->
+    <script defer src="../js/gauge.js"></script>
+    <title>Document</title>
+
+    <style>
+      table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body onload="drawVisualization()">
+    <div class="header">
+      <div class="upper-header">
+        <div class="logo">
+          <img src="../assets/Logo.png" class="logo" />
+        </div>
+        <div class="sub-container">
+          <div class="team-id">
+            <div class="key">Team ID:</div>
+            <div class="value">1000</div>
+          </div>
+          <div class="head">
+            <div>Team DJS Arya</div>
+          </div>
+          <div class="mission-time">
+            <div class="key">Mission time :</div>
+            <div class="value">13:14:02</div>
+          </div>
+        </div>
+        <div class="flag">
+          <img
+            src="../assets/360_F_163133107_nAlMgjPUyciTEnZCs4GF97wSTYXDAHAn.webp"
+            class="flag"
+          />
+        </div>
+      </div>
+      <div class="navigate">
+        <button onclick="showHero()" id="heroButton"
+         class="hero navButton underline">
+          Data
+        </button>
+        <button onClick="showCSV()" id="csvButton" class="csv navButton">CSV</button>
+        <!--<a href="./map.html" class="coordinates navButton">Coordinates</a>-->
+      </div>
+    </div>
+    <div id="hero">
+      <div class="super-container">
+        <div class="data-container">
+          <div class="container">
+            <div class="column-container">
+              <div class="column">
+                <div class="element other-element">
+                  <div class="key" id="ALTITUDE_KEY">ALTITUDE :</div>
+                  <div class="value" id="ALTITUDE_VALUE">550.5 m</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="AIR_SPEED_KEY">AIR_SPEED :</div>
+                  <div class="value" id="AIR_SPEED_VALUE">30 m/s</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="TEMPERATURE_KEY">TEMPERATURE :</div>
+                  <div class="value" id="TEMPERATURE_VALUE">30 deg</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="PRESSURE_KEY">PRESSURE :</div>
+                  <div class="value" id="PRESSURE_VALUE">101.3 atm</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="MODE_KEY">MODE :</div>
+                  <div class="value" id="MODE_VALUE">F</div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="element other-element">
+                  <div class="key" id="HS_DEPLOYED_KEY">HS_DEPLOYED :</div>
+                  <div class="value" id="HS_DEPLOYED_VALUE">N</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="PC_DEPLOYED_KEY">PC_DEPLOYED :</div>
+                  <div class="value" id="PC_DEPLOYED_VALUE">N</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="CMD_ECHO_KEY">CMD_ECHO :</div>
+                  <div class="value" id="CMD_ECHO_VALUE">CXON</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="GPS_TIME_KEY">GPS_TIME :</div>
+                  <div class="value" id="GPS_TIME_VALUE">hh:mm:ss</div>
+                </div>
+                <div class="element other-element">
+                  <div class="key" id="GPS_SATS_KEY">GPS_SATS :</div>
+                  <div class="value" id="GPS_SATS_VALUE">4</div>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="map-container">
+              <div class="col">
+                <div class="mapElement other-element">
+                  <div class="key" id="GPS_LATITUDE_KEY">Latitude :</div>
+                  <div class="value" id="GPS_LATITUDE_VALUE">3</div>
+                </div>
+                <div class="mapElement other-element">
+                  <div class="key" id="GPS_LONGITUDE_KEY">Longitude :</div>
+                  <div class="value" id="GPS_LONGITUDE_VALUE">4</div>
+                </div>
+              </div>
+              <div id="map" class="sub-map"></div>
+            </div>
+            <div class="control-container">
+              <div class="gauge-container">
+                <div id="gauge"></div>
+              </div>
+              <div class="package-count">
+                <div class="key" id="PACKAGE_COUNT_KEY">PACKAGE_COUNT :</div>
+                <div class="value" id="PACKAGE_COUNT_VALUE">4</div>
+              </div>
+              <div class="buttons-container">
+                <a href="#" class="play buttons">
+                  <i
+                    class="fa-solid fa-circle-play fa-3x icon"
+                    style="color: #ffffff"
+                  ></i>
+                  <div>Start</div>
+                </a>
+                <a href="#" class="stop buttons">
+                  <i
+                    class="fa-solid fa-circle-pause fa-3x icon"
+                    style="color: #ffffff"
+                  ></i>
+                  <div>Stop</div>
+                </a>
+                <a href="#" class="restart buttons">
+                  <i
+                    class="fa-solid fa-rotate fa-3x icon"
+                    style="color: #ffffff"
+                  ></i>
+                  <div>Restart</div>
+                </a>
+              </div>
+              <div class="simulation-mode-container">
+                <div class="toggle">
+                  <input type="checkbox" id="switch" /><label for="switch"
+                    >Toggle</label
+                  >
+                </div>
+                <div class="label">SIMULATION MODE</div>
+              </div>
+              <div class="commands">
+                <div class="input">
+                  <input type="text" placeholder="Commands" />
+                </div>
+                <button class="command-button">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </button>
+              </div>
+              <div class="dropdown-container">
+                <div class="com dropdown">
+                  <div id="dropdown1" class="dropdown-content">
+                    <ul>
+                      <li>COM</li>
+                      <li>element 1</li>
+                      <li>element 2</li>
+                      <li>element 3</li>
+                    </ul>
+                  </div>
+                  <button
+                    class="dropbtn"
+                    onclick="toggleDropdown('dropdown1')"
+                  ></button>
+                  <div>COM</div>
+                </div>
+                <div class="draft dropdown">
+                  <div id="dropdown2" class="dropdown-content">
+                    <ul>
+                      <li>DRAFT</li>
+                      <li>element 1</li>
+                      <li>element 2</li>
+                      <li>element 3</li>
+                    </ul>
+                  </div>
+                  <button
+                    class="dropbtn"
+                    onclick="toggleDropdown('dropdown2')"
+                  ></button>
+                  <div>DRAFT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flowChart-container">
+            <div class="sub-container">
+              <div class="states">Launch</div>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="sub-container">
+              <div class="states">Ascent</div>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="sub-container">
+              <div class="states">Rocket Separation</div>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="sub-container">
+              <div class="states active">Descent</div>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="sub-container">
+              <div class="states">HS released</div>
+            </div>
+          </div>
+        </div>
+        <div class="graph-container">
+          <div class="column">
+            <div class="graph graph-one">
+              <canvas id="graph-one" width="550px" height="350px"></canvas>
+            </div>
+            <div class="graph graph-two">
+              <canvas id="graph-two" width="550px" height="350px"></canvas>
+            </div>
+          </div>
+          <div class="column">
+            <div class="graph graph-three">
+              <canvas id="graph-three" width="550px" height="350px"></canvas>
+            </div>
+            <div class="graph graph-four">
+              <canvas id="graph-four" width="550px" height="350px"></canvas>
+            </div>
+          </div>
+          <div class="column">
+            <div id="model">
+              <div class="col">
+                <div class="mapElement other-element">
+                  <div class="key" id="TILT_X_KEY">TILT_x :</div>
+                  <div class="value" id="TILT_X_VALUE">3</div>
+                </div>
+                <div class="mapElement other-element">
+                  <div class="key" id="TILT_Y_KEY">TILT_y :</div>
+                  <div class="value" id="TILT_Y_VALUE">4</div>
+                </div>
+                <div class="mapElement other-element">
+                  <div class="key" id="ROT_Z_KEY">ROT_Z :</div>
+                  <div class="value" id="ROT_Z_VALUE">5</div>
+                </div>
+              </div>
+            </div>
+            <div class="three-graph-container">
+              <div class="col">
+                <div class="mapElement other-element">
+                  <div class="key" id="ALTITUDE_KEY">ALTITUDE :</div>
+                  <div class="value" id="ALTITUDE_VALUE">3</div>
+                </div>
+                <div class="mapElement other-element">
+                  <div class="key" id="GPS_LATITUDE_KEY">Latitude :</div>
+                  <div class="value" id="GPS_LATITUDE_VALUE">3</div>
+                </div>
+                <div class="mapElement other-element">
+                  <div class="key" id="GPS_LONGITUDE_KEY">Longitude :</div>
+                  <div class="value" id="GPS_LONGITUDE_VALUE">4</div>
+                </div>
+              </div>
+              <div id="mygraph"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="csv" class="hidden">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td id="TEAM_ID"></td>
+          <td id="MISSION_TIME"></td>
+        </tr>
+        <tr>
+          <td id="PACKET_COUNT"></td>
+          <td id="MODE"></td>
+        </tr>
+        <tr>
+          <td id="STATE"></td>
+          <td id="ALTITUDE"></td>
+        </tr>
+        <tr>
+          <td id="AIR_SPEED"></td>
+          <td id="HS_DEPLOYED"></td>
+        </tr>
+        <tr>
+          <td id="PC_DEPLOYED"></td>
+          <td id="TEMPERATURE"></td>
+        </tr>
+        <tr>
+          <td id="PRESSURE"></td>
+          <td id="VOLTAGE"></td>
+        </tr>
+        <tr>
+          <td id="GPS_TIME"></td>
+          <td id="GPS_ALTITUDE"></td>
+        </tr>
+        <tr>
+          <td id="GPS_LATITUDE"></td>
+          <td id="GPS_LONGITUDE"></td>
+        </tr>
+        <tr>
+          <td id="GPS_SATS"></td>
+          <td id="TILT_X"></td>
+        </tr>
+        <tr>
+          <td id="TILT_Y"></td>
+          <td id="ROT_Z"></td>
+        </tr>
+        <tr>
+          <td id="CMD_ECHO"></td>
+          <td></td>
+          <!-- Empty row -->
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
